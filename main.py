@@ -26,7 +26,7 @@ class capture_video(QThread):
         super(capture_video, self).__init__()
 
     def run(self):
-        cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)       
+        cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)     
         while True:
             ret, cv_img = cap.read()
             gray = cv2.cvtColor(cv_img, cv2.COLOR_BGR2GRAY)
@@ -41,40 +41,6 @@ class capture_video(QThread):
         self.terminate()
 #############################################
 
-class NhanDien():
-    def __init__(self) -> None:
-        pass
-
-    def getProfile(self,SoTu):
-        conn = sqlite3.connect("database.db")
-        query = "SELECT * FROM data WHERE SoTu = " + str(SoTu)
-        cusror = conn.execute(query)
-        profile = None
-        for row in cusror:
-            profile = row
-        conn.close()
-        return profile
-    ############################################################
-
-    def nhanDien(self):
-        cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
-        ret, frame = cap.read()
-        gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
-        faces = face_cascade.detectMultiScale(gray,1.3,5)
-        for(x,y,w,h) in faces:
-            roi_gray = gray[y:y+h,x:x+w]
-            SoTu,confidence = recognizer.predict(roi_gray)
-            if confidence < 70:
-                profile = self.getProfile(SoTu)
-                if(profile != None):
-                    print("True")
-                    cap.release()
-                    return True
-            else:
-                print("False")
-                cap.release()
-                return False
-    
 ############################################
 class MainWindow(QMainWindow):
     def __init__(self):
