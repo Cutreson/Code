@@ -1,4 +1,5 @@
 import sys
+from typing import Any
 import cv2
 from time import sleep
 import cv2
@@ -16,6 +17,10 @@ from GUI import Ui_MainWindow
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 recognizer.read("recoginizer/trainningData.yml")
+cap = cv2.VideoCapture(0,cv2.CAP_DSHOW) 
+ret, frame = cap.read()
+gray : Any #= cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
+#faces = face_cascade.detectMultiScale(gray,1.3,5)
 #############################################
 class capture_video(QThread):
     signal = pyqtSignal(np.ndarray)
@@ -24,12 +29,11 @@ class capture_video(QThread):
         print("start threading", self.index)
         super(capture_video, self).__init__()
 
-    def run(self):
-        cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)     
+    def run(self):    
         while True:
             ret, cv_img = cap.read()
             gray = cv2.cvtColor(cv_img, cv2.COLOR_BGR2GRAY)
-            faces = face_cascade.detectMultiScale(gray, 1.1, 4)
+            faces = face_cascade.detectMultiScale(gray, 1.3, 4)
             for (x, y, w, h) in faces:
                 cv2.rectangle(cv_img, (x, y), (x+w, y+h), (0, 0, 255), 2)
             if ret:
@@ -57,8 +61,8 @@ class Worker(QThread):
         return profile
 
     def nhanDien(self):
-        cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
-        ret, frame = cap.read()
+        #cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
+        #ret, frame = cap.read()
         gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
         faces = face_cascade.detectMultiScale(gray,1.3,5)
         for(x,y,w,h) in faces:
