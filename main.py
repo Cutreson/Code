@@ -19,7 +19,7 @@ recognizer = cv2.face.LBPHFaceRecognizer_create()
 recognizer.read("recoginizer/trainningData.yml")
 cap = cv2.VideoCapture(0,cv2.CAP_DSHOW) 
 ret, frame = cap.read()
-gray : Any #= cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
+gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
 #faces = face_cascade.detectMultiScale(gray,1.3,5)
 #############################################
 class capture_video(QThread):
@@ -32,7 +32,7 @@ class capture_video(QThread):
     def run(self):    
         while True:
             ret, cv_img = cap.read()
-            gray = cv2.cvtColor(cv_img, cv2.COLOR_BGR2GRAY)
+            #gray = cv2.cvtColor(cv_img, cv2.COLOR_BGR2GRAY)
             faces = face_cascade.detectMultiScale(gray, 1.3, 4)
             for (x, y, w, h) in faces:
                 cv2.rectangle(cv_img, (x, y), (x+w, y+h), (0, 0, 255), 2)
@@ -79,11 +79,9 @@ class Worker(QThread):
                 if(profile != None):
                     print(SoTu)
                     cap.release()
-                    return True
             else:
                 print("False")
                 cap.release()
-                return False
 
     def stop(self):
         print("stop threading", self.index)
