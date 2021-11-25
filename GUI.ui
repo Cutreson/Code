@@ -37,15 +37,15 @@
        <widget class="QLabel" name="label">
         <property name="geometry">
          <rect>
-          <x>170</x>
+          <x>0</x>
           <y>20</y>
-          <width>641</width>
+          <width>971</width>
           <height>61</height>
          </rect>
         </property>
         <property name="font">
          <font>
-          <pointsize>20</pointsize>
+          <pointsize>25</pointsize>
           <weight>75</weight>
           <bold>true</bold>
          </font>
@@ -53,14 +53,17 @@
         <property name="text">
          <string>Tủ gửi đồ thông minh sử dụng trí tuệ nhân tạo</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
        </widget>
        <widget class="QPushButton" name="btn_Tu_1">
         <property name="geometry">
          <rect>
           <x>50</x>
-          <y>330</y>
+          <y>350</y>
           <width>111</width>
-          <height>31</height>
+          <height>51</height>
          </rect>
         </property>
         <property name="font">
@@ -82,7 +85,7 @@ border-color: rgb(255, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>10</x>
-          <y>120</y>
+          <y>140</y>
           <width>201</width>
           <height>201</height>
          </rect>
@@ -108,9 +111,9 @@ border-color: rgb(255, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>300</x>
-          <y>330</y>
+          <y>350</y>
           <width>111</width>
-          <height>31</height>
+          <height>51</height>
          </rect>
         </property>
         <property name="font">
@@ -132,7 +135,7 @@ border-color: rgb(255, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>260</x>
-          <y>120</y>
+          <y>140</y>
           <width>201</width>
           <height>201</height>
          </rect>
@@ -158,9 +161,9 @@ border-color: rgb(255, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>790</x>
-          <y>330</y>
+          <y>350</y>
           <width>111</width>
-          <height>31</height>
+          <height>51</height>
          </rect>
         </property>
         <property name="font">
@@ -182,9 +185,9 @@ border-color: rgb(255, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>540</x>
-          <y>330</y>
+          <y>350</y>
           <width>111</width>
-          <height>31</height>
+          <height>51</height>
          </rect>
         </property>
         <property name="font">
@@ -206,7 +209,7 @@ border-color: rgb(255, 0, 0);</string>
         <property name="geometry">
          <rect>
           <x>750</x>
-          <y>120</y>
+          <y>140</y>
           <width>201</width>
           <height>201</height>
          </rect>
@@ -231,8 +234,8 @@ border-color: rgb(255, 0, 0);</string>
        <widget class="QLabel" name="label_Tu_4">
         <property name="geometry">
          <rect>
-          <x>500</x>
-          <y>120</y>
+          <x>510</x>
+          <y>140</y>
           <width>201</width>
           <height>201</height>
          </rect>
@@ -276,6 +279,9 @@ color: rgb(255, 0, 0);</string>
         </property>
         <property name="text">
          <string>Console</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </widget>
