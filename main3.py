@@ -7,7 +7,7 @@ import sqlite3
 from PIL import Image
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QSize, QThread, pyqtSignal, Qt, QObject
-from PyQt5.QtGui import QIcon, QPixmap
+from PyQt5.QtGui import QFont, QIcon, QPixmap
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem, QLabel
 from GUI import Ui_MainWindow
 import speech_recognition as sr
@@ -355,8 +355,11 @@ class MainWindow(QMainWindow):
         if(file_count == 0):
             return
         row = 0
+        self.uic.table_Data.setIconSize(QSize(180,180))
+        font = QFont()
+        font.setPointSize(6)
+        self.uic.table_Data.setFont(font)
         for imagePath in imagePaths:          
-            self.uic.table_Data.setIconSize(QSize(180,180))
             item = QTableWidgetItem()
             item.setSizeHint(QSize(185,185))
             item.setIcon(QIcon(imagePath))
