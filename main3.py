@@ -12,7 +12,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow
 from GUI import Ui_MainWindow
 import speech_recognition as sr
 from gtts import gTTS
-import os
+import os, shutil
 import time
 import playsound
 from datetime import datetime
@@ -294,7 +294,58 @@ class MainWindow(QMainWindow):
         self.uic = Ui_MainWindow()
         self.uic.setupUi(self)
         self.thread = {}
-
+########################################################
+    def btn_Event(self):
+        self.uic.btn_Tu_1.clicked.connect(self.btn_Tu_1)
+        self.uic.btn_Tu_2.clicked.connect(self.btn_Tu_2)
+        self.uic.btn_Tu_3.clicked.connect(self.btn_Tu_3)
+        self.uic.btn_Tu_4.clicked.connect(self.btn_Tu_4)
+    
+    def btn_Tu_1(self):
+        path = "dataFace"
+        pathss, dirs, files = next(os.walk("dataFace"))
+        file_count = len(files)
+        if(file_count != 0):
+            imagePaths = [os.path.join(path,f) for f in os.listdir(path)]
+            for imagePath in imagePaths:
+                if(1 == int(imagePath.split("\\")[1].split(".")[1])):
+                    shutil.move(imagePath, "History")
+                    deleteRecord(1)
+                    train_Data()
+    def btn_Tu_2(self):
+        path = "dataFace"
+        pathss, dirs, files = next(os.walk("dataFace"))
+        file_count = len(files)
+        if(file_count != 0):
+            imagePaths = [os.path.join(path,f) for f in os.listdir(path)]
+            for imagePath in imagePaths:
+                if(2 == int(imagePath.split("\\")[1].split(".")[1])):
+                    shutil.move(imagePath, "History")
+                    deleteRecord(2)
+                    train_Data()    
+    def btn_Tu_3(self):
+        path = "dataFace"
+        pathss, dirs, files = next(os.walk("dataFace"))
+        file_count = len(files)
+        if(file_count != 0):
+            imagePaths = [os.path.join(path,f) for f in os.listdir(path)]
+            for imagePath in imagePaths:
+                if(3 == int(imagePath.split("\\")[1].split(".")[1])):
+                    shutil.move(imagePath, "History")
+                    deleteRecord(3)
+                    train_Data()    
+    def btn_Tu_4(self):
+        path = "dataFace"
+        pathss, dirs, files = next(os.walk("dataFace"))
+        file_count = len(files)
+        if(file_count != 0):
+            imagePaths = [os.path.join(path,f) for f in os.listdir(path)]
+            for imagePath in imagePaths:
+                if(4 == int(imagePath.split("\\")[1].split(".")[1])):
+                    shutil.move(imagePath, "History")
+                    deleteRecord(4)
+                    train_Data()       
+##################################################################
     def closeEvent(self, event):
         self.stop_capture_video()
 
@@ -395,6 +446,7 @@ class MainWindow(QMainWindow):
     def task_main(self,text):
         self.show_Console(text)
         self.show_all_Img()
+        self.btn_Event()
     def run_Task(self):
         self.thread[1] = Speed_Reco(index=1)
         self.thread[1].start()
