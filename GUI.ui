@@ -315,8 +315,8 @@ color: rgb(255, 0, 0);</string>
        <widget class="QPushButton" name="btn_view_Img">
         <property name="geometry">
          <rect>
-          <x>90</x>
-          <y>460</y>
+          <x>720</x>
+          <y>80</y>
           <width>111</width>
           <height>51</height>
          </rect>
@@ -333,14 +333,14 @@ color: rgb(255, 0, 0);</string>
 border-color: rgb(255, 0, 0);</string>
         </property>
         <property name="text">
-         <string>Xem ảnh</string>
+         <string>Xóa hàng</string>
         </property>
        </widget>
        <widget class="QPushButton" name="btn_delete">
         <property name="geometry">
          <rect>
-          <x>760</x>
-          <y>460</y>
+          <x>720</x>
+          <y>160</y>
           <width>111</width>
           <height>51</height>
          </rect>
@@ -357,7 +357,7 @@ border-color: rgb(255, 0, 0);</string>
 border-color: rgb(255, 0, 0);</string>
         </property>
         <property name="text">
-         <string>Xóa dữ liệu</string>
+         <string>Xóa tất cả</string>
         </property>
        </widget>
        <widget class="QTableWidget" name="table_Data">
@@ -368,8 +368,8 @@ border-color: rgb(255, 0, 0);</string>
          <rect>
           <x>90</x>
           <y>80</y>
-          <width>781</width>
-          <height>351</height>
+          <width>571</width>
+          <height>451</height>
          </rect>
         </property>
         <property name="font">
@@ -423,10 +423,10 @@ border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0,
          <bool>false</bool>
         </attribute>
         <attribute name="horizontalHeaderDefaultSectionSize">
-         <number>190</number>
+         <number>185</number>
         </attribute>
         <attribute name="horizontalHeaderHighlightSections">
-         <bool>true</bool>
+         <bool>false</bool>
         </attribute>
         <attribute name="horizontalHeaderMinimumSectionSize">
          <number>30</number>
@@ -444,7 +444,7 @@ border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0,
          <bool>false</bool>
         </attribute>
         <attribute name="verticalHeaderDefaultSectionSize">
-         <number>30</number>
+         <number>185</number>
         </attribute>
         <attribute name="verticalHeaderMinimumSectionSize">
          <number>30</number>
@@ -481,7 +481,7 @@ border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0,
         <row/>
         <column>
          <property name="text">
-          <string>STT</string>
+          <string>Hình ảnh</string>
          </property>
          <property name="font">
           <font>
@@ -509,7 +509,7 @@ border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0,
          </property>
          <property name="font">
           <font>
-           <pointsize>16</pointsize>
+           <pointsize>18</pointsize>
            <weight>75</weight>
            <bold>true</bold>
           </font>
@@ -529,31 +529,7 @@ border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0,
         </column>
         <column>
          <property name="text">
-          <string>Ngày gửi</string>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>16</pointsize>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="textAlignment">
-          <set>AlignCenter</set>
-         </property>
-         <property name="foreground">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>0</red>
-            <green>0</green>
-            <blue>0</blue>
-           </color>
-          </brush>
-         </property>
-        </column>
-        <column>
-         <property name="text">
-          <string>Giờ gửi</string>
+          <string>Thời gian</string>
          </property>
          <property name="font">
           <font>
@@ -577,15 +553,7 @@ border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0,
         </column>
         <item row="0" column="0">
          <property name="text">
-          <string>1</string>
-         </property>
-         <property name="textAlignment">
-          <set>AlignCenter</set>
-         </property>
-        </item>
-        <item row="0" column="1">
-         <property name="text">
-          <string>2</string>
+          <string/>
          </property>
          <property name="textAlignment">
           <set>AlignCenter</set>
@@ -593,40 +561,10 @@ border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0,
         </item>
         <item row="0" column="2">
          <property name="text">
-          <string>3</string>
+          <string/>
          </property>
          <property name="textAlignment">
           <set>AlignCenter</set>
-         </property>
-        </item>
-        <item row="1" column="0">
-         <property name="text">
-          <string>2</string>
-         </property>
-        </item>
-        <item row="2" column="0">
-         <property name="text">
-          <string>3</string>
-         </property>
-        </item>
-        <item row="3" column="0">
-         <property name="text">
-          <string>4</string>
-         </property>
-        </item>
-        <item row="4" column="0">
-         <property name="text">
-          <string>5</string>
-         </property>
-        </item>
-        <item row="5" column="0">
-         <property name="text">
-          <string>6</string>
-         </property>
-        </item>
-        <item row="6" column="0">
-         <property name="text">
-          <string>7</string>
          </property>
         </item>
         <item row="6" column="2">
@@ -639,121 +577,6 @@ border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0,
            <weight>75</weight>
            <bold>true</bold>
           </font>
-         </property>
-        </item>
-        <item row="7" column="0">
-         <property name="text">
-          <string>8</string>
-         </property>
-        </item>
-        <item row="8" column="0">
-         <property name="text">
-          <string>9</string>
-         </property>
-        </item>
-        <item row="9" column="0">
-         <property name="text">
-          <string>10</string>
-         </property>
-        </item>
-        <item row="10" column="0">
-         <property name="text">
-          <string>11</string>
-         </property>
-        </item>
-        <item row="11" column="0">
-         <property name="text">
-          <string>12</string>
-         </property>
-        </item>
-        <item row="12" column="0">
-         <property name="text">
-          <string>13</string>
-         </property>
-        </item>
-        <item row="13" column="0">
-         <property name="text">
-          <string>14</string>
-         </property>
-        </item>
-        <item row="14" column="0">
-         <property name="text">
-          <string>15</string>
-         </property>
-        </item>
-        <item row="15" column="0">
-         <property name="text">
-          <string>16</string>
-         </property>
-        </item>
-        <item row="16" column="0">
-         <property name="text">
-          <string>17</string>
-         </property>
-        </item>
-        <item row="17" column="0">
-         <property name="text">
-          <string>18</string>
-         </property>
-        </item>
-        <item row="18" column="0">
-         <property name="text">
-          <string>19</string>
-         </property>
-        </item>
-        <item row="19" column="0">
-         <property name="text">
-          <string>20</string>
-         </property>
-        </item>
-        <item row="20" column="0">
-         <property name="text">
-          <string>21</string>
-         </property>
-        </item>
-        <item row="21" column="0">
-         <property name="text">
-          <string>22</string>
-         </property>
-        </item>
-        <item row="22" column="0">
-         <property name="text">
-          <string>23</string>
-         </property>
-        </item>
-        <item row="23" column="0">
-         <property name="text">
-          <string>24</string>
-         </property>
-        </item>
-        <item row="24" column="0">
-         <property name="text">
-          <string>25</string>
-         </property>
-        </item>
-        <item row="25" column="0">
-         <property name="text">
-          <string>26</string>
-         </property>
-        </item>
-        <item row="26" column="0">
-         <property name="text">
-          <string>27</string>
-         </property>
-        </item>
-        <item row="27" column="0">
-         <property name="text">
-          <string>28</string>
-         </property>
-        </item>
-        <item row="28" column="0">
-         <property name="text">
-          <string>29</string>
-         </property>
-        </item>
-        <item row="29" column="0">
-         <property name="text">
-          <string>30</string>
          </property>
         </item>
        </widget>
