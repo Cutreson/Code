@@ -278,9 +278,18 @@ class MainWindow(QMainWindow):
         p = convert_to_Qt_format.scaled(800, 600, Qt.KeepAspectRatio)
         return QPixmap.fromImage(p)
 
+###################################################
+    def show_Console(self,text):
+        self.uic.label_display.setText("Console..!!")
+        if(text == ""):
+            self.uic.label_display.setText("Đang nhận dạng...")
+        else:
+            self.uic.label_display.setText(text)
 ############################################################
     def task_main(self,text):
+        self.show_Console(text)
         if(text=="gửi đồ"):
+            self.show_Console(text)
             SoTu = check_Record()
             print(SoTu)
             if(SoTu == 0):
@@ -304,6 +313,7 @@ class MainWindow(QMainWindow):
                     playsound.playsound("voice_5.mp3")
 
         elif (text == "lấy đồ"):
+            self.show_Console(text)
             SoTu = nhanDien()
             if(SoTu == 0):
                 print("Vui lòng thử lại")
@@ -312,6 +322,7 @@ class MainWindow(QMainWindow):
                 voice_lay_do(SoTu)
                 deleteRecord(SoTu)
         else :
+            self.show_Console(text)
             print(text)
     def run_Task(self):
         self.thread[1] = Speed_Reco(index=1)
@@ -323,6 +334,7 @@ if __name__ == "__main__":
     main_win = MainWindow()
     main_win.show()
     #main_win.start_capture_video()
+    main_win.show_Console
     main_win.run_Task()
     #main_win.runLongTask()
     sys.exit(app.exec())
