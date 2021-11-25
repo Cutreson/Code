@@ -1,12 +1,11 @@
 import speech_recognition as sr
 from gtts import gTTS
-import os
-import time
 import playsound
+
 ######################################
 def text_to_Speed(text):
     tts = gTTS(text=text,lang="vi")
-    filename = "voice.mp3"
+    filename = "voice_lay_do_4.mp3"
     tts.save(filename)
     playsound.playsound(filename)
 #######################################
@@ -23,5 +22,5 @@ def speed_to_Text():
     return text
 ########################################
 
-#text_to_Speed("Hello")
+text_to_Speed("Mời bạn lấy đồ ở tủ số 4")
 #speed_to_Text()

@@ -4,9 +4,6 @@ import os
 import sqlite3
 from PIL import Image
 
-face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
-recognizer = cv2.face.LBPHFaceRecognizer_create()
-recognizer.read("recoginizer/trainningData.yml")
 ############################################################
 class NhanDien():
     def __init__(self) -> None:
@@ -24,6 +21,9 @@ class NhanDien():
     ############################################################
 
     def nhanDien(self):
+        face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
+        recognizer = cv2.face.LBPHFaceRecognizer_create()
+        recognizer.read("recoginizer/trainningData.yml")
         cap = cv2.VideoCapture(0,cv2.CAP_DSHOW)
         ret, frame = cap.read()
         gray = cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
@@ -31,16 +31,16 @@ class NhanDien():
         for(x,y,w,h) in faces:
             roi_gray = gray[y:y+h,x:x+w]
             SoTu,confidence = recognizer.predict(roi_gray)
-            if confidence < 70:
+            if confidence < 30:
                 profile = self.getProfile(SoTu)
                 if(profile != None):
-                    print("True")
+                    print(SoTu)
                     cap.release()
-                    return True
+                    return SoTu
             else:
                 print("False")
                 cap.release()
-                return False
+                return 0
 
 #####################################################
 nhanDien = NhanDien()
