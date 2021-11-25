@@ -375,14 +375,14 @@ border-color: rgb(255, 0, 0);</string>
         <property name="font">
          <font>
           <family>MS Shell Dlg 2</family>
-          <pointsize>20</pointsize>
+          <pointsize>14</pointsize>
           <weight>50</weight>
           <italic>false</italic>
           <bold>false</bold>
          </font>
         </property>
         <property name="styleSheet">
-         <string notr="true">font: 20pt &quot;MS Shell Dlg 2&quot;;
+         <string notr="true">font: 14pt &quot;MS Shell Dlg 2&quot;;
 border-color: rgb(0, 0, 0);
 border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));</string>
         </property>
@@ -394,6 +394,9 @@ border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0,
         </property>
         <property name="autoScroll">
          <bool>true</bool>
+        </property>
+        <property name="autoScrollMargin">
+         <number>10</number>
         </property>
         <property name="selectionMode">
          <enum>QAbstractItemView::MultiSelection</enum>

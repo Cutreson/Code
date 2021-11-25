@@ -166,17 +166,18 @@ class Ui_MainWindow(object):
         self.table_Data.setGeometry(QtCore.QRect(90, 80, 571, 451))
         font = QtGui.QFont()
         font.setFamily("MS Shell Dlg 2")
-        font.setPointSize(20)
+        font.setPointSize(14)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(50)
         self.table_Data.setFont(font)
-        self.table_Data.setStyleSheet("font: 20pt \"MS Shell Dlg 2\";\n"
+        self.table_Data.setStyleSheet("font: 14pt \"MS Shell Dlg 2\";\n"
 "border-color: rgb(0, 0, 0);\n"
 "border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:1 rgba(255, 255, 255, 255));")
         self.table_Data.setLineWidth(1)
         self.table_Data.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustIgnored)
         self.table_Data.setAutoScroll(True)
+        self.table_Data.setAutoScrollMargin(10)
         self.table_Data.setSelectionMode(QtWidgets.QAbstractItemView.MultiSelection)
         self.table_Data.setTextElideMode(QtCore.Qt.ElideMiddle)
         self.table_Data.setShowGrid(True)

@@ -356,9 +356,6 @@ class MainWindow(QMainWindow):
             return
         row = 0
         self.uic.table_Data.setIconSize(QSize(180,180))
-        font = QFont()
-        font.setPointSize(6)
-        self.uic.table_Data.setFont(font)
         for imagePath in imagePaths:          
             item = QTableWidgetItem()
             item.setSizeHint(QSize(185,185))
