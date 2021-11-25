@@ -293,6 +293,7 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.uic = Ui_MainWindow()
         self.uic.setupUi(self)
+        self.delete_Table()
         self.thread = {}
 ########################################################
     def btn_Event(self):
@@ -300,7 +301,32 @@ class MainWindow(QMainWindow):
         self.uic.btn_Tu_2.clicked.connect(self.btn_Tu_2)
         self.uic.btn_Tu_3.clicked.connect(self.btn_Tu_3)
         self.uic.btn_Tu_4.clicked.connect(self.btn_Tu_4)
+        self.uic.btn_view_Img.clicked.connect(self.btn_delete_Row)
+        self.uic.btn_delete.clicked.connect(self.btn_delete_All_Table)
     
+    def btn_delete_All_Table(self):
+        path = "History"
+        imagePaths = [os.path.join(path,f) for f in os.listdir(path)]
+        for imagePath in imagePaths: 
+            os.remove(imagePath)
+        self.delete_Table()
+
+    def btn_delete_Row(self):
+        self.delete_Table()
+        row = self.uic.table_Data.currentRow()
+        print(row)
+        path = "History"
+        imagePaths = [os.path.join(path,f) for f in os.listdir(path)]
+        pathss, dirs, files = next(os.walk(path))
+        file_count = len(files)
+        if(file_count != 0 & row != -1 & row < file_count):
+            os.remove(imagePaths[row])
+            time.sleep(0.1)
+            self.show_Table()
+            return
+        
+
+
     def btn_Tu_1(self):
         path = "dataFace"
         pathss, dirs, files = next(os.walk("dataFace"))
@@ -346,6 +372,11 @@ class MainWindow(QMainWindow):
                     deleteRecord(4)
                     train_Data()       
 ##################################################################
+    def delete_Table(self):
+        for row in range(29):
+            self.uic.table_Data.setItem(row,0,QTableWidgetItem(""))
+            self.uic.table_Data.setItem(row,1,QTableWidgetItem(""))
+            self.uic.table_Data.setItem(row,2,QTableWidgetItem(""))
     def show_Table(self):
         path = "History"
         imagePaths = [os.path.join(path,f) for f in os.listdir(path)]
