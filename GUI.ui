@@ -257,10 +257,10 @@ border-color: rgb(255, 0, 0);</string>
        <widget class="QLabel" name="label_display">
         <property name="geometry">
          <rect>
-          <x>160</x>
-          <y>430</y>
-          <width>671</width>
-          <height>101</height>
+          <x>0</x>
+          <y>470</y>
+          <width>981</width>
+          <height>111</height>
          </rect>
         </property>
         <property name="font">
@@ -270,8 +270,12 @@ border-color: rgb(255, 0, 0);</string>
           <bold>true</bold>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 255, 0);
+color: rgb(255, 0, 0);</string>
+        </property>
         <property name="text">
-         <string>Tủ gửi đồ thông minh sử dụng trí tuệ nhân tạo</string>
+         <string>Console</string>
         </property>
        </widget>
       </widget>
