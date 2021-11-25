@@ -120,7 +120,7 @@ def get_Face(SoTu):
                 os.makedirs("dataSet")
             sampleNum += 1
             cv2.imwrite("dataSet/TuSo."+str(SoTu)+"."+str(sampleNum)+".jpg",gray[y : y+h,x : x+w])
-        #cv2.imshow("frame",frame)
+        cv2.imshow("frame",frame)
         cv2.waitKey(1)
         if sampleNum > 10:
             if not os.path.exists("dataFace"):
@@ -330,37 +330,67 @@ class MainWindow(QMainWindow):
             self.uic.label_display.setText("Nhận diện giọng nói : " + text)
 
 ############################################################
-    def show_all_Img(self):
+    def show_img1(self):
         path = "dataFace"
         pathss, dirs, files = next(os.walk("dataFace"))
         file_count = len(files)
         if(file_count == 0):
             self.uic.label_Tu_1.setText("Trống")
-            self.uic.label_Tu_2.setText("Trống")
-            self.uic.label_Tu_3.setText("Trống")
-            self.uic.label_Tu_4.setText("Trống")
         imagePaths = [os.path.join(path,f) for f in os.listdir(path)]
         for imagePath in imagePaths:
             if(1 == int(imagePath.split("\\")[1].split(".")[1])):
                 pixmap_1 = QPixmap(imagePath)
                 self.uic.label_Tu_1.setPixmap(pixmap_1)
+                return
             else:
                 self.uic.label_Tu_1.setText("Trống")
+    def show_img2(self):
+        path = "dataFace"
+        pathss, dirs, files = next(os.walk("dataFace"))
+        file_count = len(files)
+        if(file_count == 0):
+            self.uic.label_Tu_2.setText("Trống")
+        imagePaths = [os.path.join(path,f) for f in os.listdir(path)]
+        for imagePath in imagePaths:
             if(2 == int(imagePath.split("\\")[1].split(".")[1])):
                 pixmap_2 = QPixmap(imagePath)
                 self.uic.label_Tu_2.setPixmap(pixmap_2)
+                return
             else:
                 self.uic.label_Tu_2.setText("Trống")
+    def show_img3(self):
+        path = "dataFace"
+        pathss, dirs, files = next(os.walk("dataFace"))
+        file_count = len(files)
+        if(file_count == 0):
+            self.uic.label_Tu_3.setText("Trống")
+        imagePaths = [os.path.join(path,f) for f in os.listdir(path)]
+        for imagePath in imagePaths:
             if(3 == int(imagePath.split("\\")[1].split(".")[1])):
-                pixmap_3 = QPixmap(imagePath)
-                self.uic.label_Tu_3.setPixmap(pixmap_3)
+                pixmap_1 = QPixmap(imagePath)
+                self.uic.label_Tu_3.setPixmap(pixmap_1)
+                return
             else:
                 self.uic.label_Tu_3.setText("Trống")
+    def show_img4(self):
+        path = "dataFace"
+        pathss, dirs, files = next(os.walk("dataFace"))
+        file_count = len(files)
+        if(file_count == 0):
+            self.uic.label_Tu_4.setText("Trống")
+        imagePaths = [os.path.join(path,f) for f in os.listdir(path)]
+        for imagePath in imagePaths:
             if(4 == int(imagePath.split("\\")[1].split(".")[1])):
-                pixmap_4 = QPixmap(imagePath)
-                self.uic.label_Tu_4.setPixmap(pixmap_4)
+                pixmap_1 = QPixmap(imagePath)
+                self.uic.label_Tu_4.setPixmap(pixmap_1)
+                return
             else:
                 self.uic.label_Tu_4.setText("Trống")
+    def show_all_Img(self):
+        self.show_img1()
+        self.show_img2()
+        self.show_img3()
+        self.show_img4()
 ############################################################
     def task_main(self,text):
         self.show_Console(text)
