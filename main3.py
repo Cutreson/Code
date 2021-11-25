@@ -7,8 +7,8 @@ import sqlite3
 from PIL import Image
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QThread, pyqtSignal, Qt, QObject
-from PyQt5.QtGui import QPixmap
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtGui import QIcon, QPixmap
+from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem, QLabel
 from GUI import Ui_MainWindow
 import speech_recognition as sr
 from gtts import gTTS
@@ -346,6 +346,30 @@ class MainWindow(QMainWindow):
                     deleteRecord(4)
                     train_Data()       
 ##################################################################
+    def getImageLabel(self,image):
+        imageLabel = QtWidgets.QLabel()
+        imageLabel.setText("")
+        imageLabel.setScaledContents(True)
+        pixmap = QPixmap(image)
+        #pixmap.loadFromData(str(image),"jpg")
+        imageLabel.setPixmap(pixmap)
+        return imageLabel
+
+    def show_Table(self):
+        path = "History"
+        imagePaths = [os.path.join(path,f) for f in os.listdir(path)]
+        pathss, dirs, files = next(os.walk(path))
+        file_count = len(files)
+        print(file_count)
+        if(file_count == 0):
+            return
+        for imagePath in imagePaths:
+            item = QTableWidgetItem()
+            item.setIcon(QIcon(imagePath))
+            self.uic.table_Data.setItem(0,0,item)
+            return
+
+##############################################################
     def closeEvent(self, event):
         self.stop_capture_video()
 
@@ -447,6 +471,7 @@ class MainWindow(QMainWindow):
         self.show_Console(text)
         self.show_all_Img()
         self.btn_Event()
+        self.show_Table()
     def run_Task(self):
         self.thread[1] = Speed_Reco(index=1)
         self.thread[1].start()
