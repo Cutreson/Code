@@ -6,7 +6,7 @@ import numpy as np
 import sqlite3
 from PIL import Image
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import QThread, pyqtSignal, Qt, QObject
+from PyQt5.QtCore import QSize, QThread, pyqtSignal, Qt, QObject
 from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem, QLabel
 from GUI import Ui_MainWindow
@@ -125,7 +125,7 @@ def get_Face(SoTu):
         if sampleNum > 10:
             if not os.path.exists("dataFace"):
                 os.makedirs("dataFace")
-            cv2.imwrite("dataFace/TuSo."+str(SoTu) + "." + str(datetime.now().strftime("%d.%m.%Y %H.%M")) + ".jpg",frame[y-80 : y+h+80,x-60 : x+w+60])
+            cv2.imwrite("dataFace/TuSo."+str(SoTu) + ". " + str(datetime.now().strftime("%d.%m.%Y %Hh%M")) + ".jpg",frame[y-80 : y+h+80,x-60 : x+w+60])
             cap.release()
             cv2.destroyAllWindows()
             print("Lấy data thành công")
@@ -346,15 +346,6 @@ class MainWindow(QMainWindow):
                     deleteRecord(4)
                     train_Data()       
 ##################################################################
-    def getImageLabel(self,image):
-        imageLabel = QtWidgets.QLabel()
-        imageLabel.setText("")
-        imageLabel.setScaledContents(True)
-        pixmap = QPixmap(image)
-        #pixmap.loadFromData(str(image),"jpg")
-        imageLabel.setPixmap(pixmap)
-        return imageLabel
-
     def show_Table(self):
         path = "History"
         imagePaths = [os.path.join(path,f) for f in os.listdir(path)]
@@ -363,11 +354,16 @@ class MainWindow(QMainWindow):
         print(file_count)
         if(file_count == 0):
             return
-        for imagePath in imagePaths:
+        row = 0
+        for imagePath in imagePaths:          
+            self.uic.table_Data.setIconSize(QSize(180,180))
             item = QTableWidgetItem()
+            item.setSizeHint(QSize(185,185))
             item.setIcon(QIcon(imagePath))
-            self.uic.table_Data.setItem(0,0,item)
-            return
+            self.uic.table_Data.setItem(row,0,item)
+            self.uic.table_Data.setItem(row,1,QTableWidgetItem("Tủ số " + imagePath.split("\\")[1].split(".")[1]))
+            self.uic.table_Data.setItem(row,2,QTableWidgetItem(imagePath.split("\\")[1].split(" ")[1] + " : " + imagePath.split("\\")[1].split(" ")[2].split(".")[0]))
+            row+=1
 
 ##############################################################
     def closeEvent(self, event):
