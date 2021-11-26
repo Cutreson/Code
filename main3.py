@@ -543,7 +543,6 @@ class MainWindow(QMainWindow):
     def task_main(self,text):
         self.show_Console(text)
         self.show_all_Img()
-        self.btn_Event()
         self.show_Table()
     def run_Task(self):
         self.thread[1] = Speed_Reco(index=1)
@@ -562,5 +561,4 @@ if __name__ == "__main__":
     main_win.uic.btn_delete_One.clicked.connect(main_win.btn_delete_Row)
     main_win.uic.btn_delete_All.clicked.connect(main_win.btn_delete_All_Table)
     main_win.run_Task()
-    #main_win.runLongTask()
     sys.exit(app.exec())

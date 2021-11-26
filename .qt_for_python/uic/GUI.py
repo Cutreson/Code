@@ -142,7 +142,7 @@ class Ui_MainWindow(object):
         self.label_5.setAlignment(QtCore.Qt.AlignCenter)
         self.label_5.setObjectName("label_5")
         self.btn_delete_One = QtWidgets.QPushButton(self.tab)
-        self.btn_delete_One.setGeometry(QtCore.QRect(710, 80, 131, 51))
+        self.btn_delete_One.setGeometry(QtCore.QRect(720, 80, 131, 51))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(True)
@@ -153,7 +153,7 @@ class Ui_MainWindow(object):
         self.btn_delete_One.setObjectName("btn_delete_One")
         self.table_Data = QtWidgets.QTableWidget(self.tab)
         self.table_Data.setEnabled(True)
-        self.table_Data.setGeometry(QtCore.QRect(110, 80, 571, 451))
+        self.table_Data.setGeometry(QtCore.QRect(120, 80, 571, 451))
         font = QtGui.QFont()
         font.setFamily("MS Shell Dlg 2")
         font.setPointSize(14)
@@ -260,7 +260,7 @@ class Ui_MainWindow(object):
         self.table_Data.verticalHeader().setDefaultSectionSize(185)
         self.table_Data.verticalHeader().setMinimumSectionSize(30)
         self.btn_delete_All = QtWidgets.QPushButton(self.tab)
-        self.btn_delete_All.setGeometry(QtCore.QRect(710, 150, 131, 51))
+        self.btn_delete_All.setGeometry(QtCore.QRect(720, 150, 131, 51))
         font = QtGui.QFont()
         font.setPointSize(12)
         font.setBold(True)
@@ -277,7 +277,7 @@ class Ui_MainWindow(object):
         MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
