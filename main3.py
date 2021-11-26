@@ -321,13 +321,13 @@ class MainWindow(QMainWindow):
         file_count = len(files)
         if(file_count != 0 & row != -1 & row < file_count):
             os.remove(imagePaths[row])
-            time.sleep(0.1)
             self.show_Table()
             return
         
 
 
     def btn_Tu_1(self):
+        self.uic.label_Tu_1.setText("Trống")
         path = "dataFace"
         pathss, dirs, files = next(os.walk("dataFace"))
         file_count = len(files)
@@ -339,6 +339,7 @@ class MainWindow(QMainWindow):
                     deleteRecord(1)
                     train_Data()
     def btn_Tu_2(self):
+        self.uic.label_Tu_2.setText("Trống")
         path = "dataFace"
         pathss, dirs, files = next(os.walk("dataFace"))
         file_count = len(files)
@@ -350,6 +351,7 @@ class MainWindow(QMainWindow):
                     deleteRecord(2)
                     train_Data()    
     def btn_Tu_3(self):
+        self.uic.label_Tu_3.setText("Trống")
         path = "dataFace"
         pathss, dirs, files = next(os.walk("dataFace"))
         file_count = len(files)
@@ -361,6 +363,7 @@ class MainWindow(QMainWindow):
                     deleteRecord(3)
                     train_Data()    
     def btn_Tu_4(self):
+        self.uic.label_Tu_4.setText("Trống")
         path = "dataFace"
         pathss, dirs, files = next(os.walk("dataFace"))
         file_count = len(files)
@@ -508,7 +511,6 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     main_win = MainWindow()
     main_win.show()
-    #main_win.start_capture_video()
     main_win.show_Console
     main_win.run_Task()
     #main_win.runLongTask()
