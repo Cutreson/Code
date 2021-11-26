@@ -28,7 +28,7 @@
        <string notr="true">color: rgb(0, 0, 255);</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_Home">
        <attribute name="title">
@@ -312,11 +312,11 @@ color: rgb(255, 0, 0);</string>
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QPushButton" name="btn_delete_3">
+       <widget class="QPushButton" name="btn_delete_One">
         <property name="geometry">
          <rect>
-          <x>700</x>
-          <y>480</y>
+          <x>710</x>
+          <y>80</y>
           <width>131</width>
           <height>51</height>
          </rect>
@@ -333,7 +333,7 @@ color: rgb(255, 0, 0);</string>
 border-color: rgb(255, 0, 0);</string>
         </property>
         <property name="text">
-         <string>Xóa dữ liệu</string>
+         <string>Xóa hàng</string>
         </property>
        </widget>
        <widget class="QTableWidget" name="table_Data">
@@ -609,6 +609,30 @@ border-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0,
           </font>
          </property>
         </item>
+       </widget>
+       <widget class="QPushButton" name="btn_delete_All">
+        <property name="geometry">
+         <rect>
+          <x>710</x>
+          <y>150</y>
+          <width>131</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>12</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(170, 255, 255);
+border-color: rgb(255, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string>Xóa tất cả</string>
+        </property>
        </widget>
       </widget>
      </widget>

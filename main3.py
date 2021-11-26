@@ -16,9 +16,12 @@ import os, shutil
 import time
 import playsound
 from datetime import datetime
+import serial
 
+port = serial.Serial('COM5',9600)
 duration = 3
 Confidence = 50
+time_Open = 2
 ###########################################
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + "haarcascade_frontalface_default.xml")
 recognizer = cv2.face.LBPHFaceRecognizer_create()
@@ -27,22 +30,46 @@ recognizer.read("recoginizer/trainningData.yml")
 def voice_gui_do(SoTu):
     if(SoTu == 1):
         playsound.playsound("voice_gui_do_1.mp3")
+        port.write(str.encode('1'))
+        time.sleep(time_Open)
+        port.write(str.encode('0'))
     if(SoTu == 2):
         playsound.playsound("voice_gui_do_2.mp3")
+        port.write(str.encode('3'))
+        time.sleep(time_Open)
+        port.write(str.encode('2'))
     if(SoTu == 3):
         playsound.playsound("voice_gui_do_3.mp3")
+        port.write(str.encode('5'))
+        time.sleep(time_Open)
+        port.write(str.encode('4'))
     if(SoTu == 4):
         playsound.playsound("voice_gui_do_4.mp3")
+        port.write(str.encode('7'))
+        time.sleep(time_Open)
+        port.write(str.encode('6'))
 
 def voice_lay_do(SoTu):
     if(SoTu == 1):
         playsound.playsound("voice_lay_do_1.mp3")
+        port.write(str.encode('1'))
+        time.sleep(time_Open)
+        port.write(str.encode('0'))
     if(SoTu == 2):
         playsound.playsound("voice_lay_do_2.mp3")
+        port.write(str.encode('3'))
+        time.sleep(time_Open)
+        port.write(str.encode('2'))
     if(SoTu == 3):
         playsound.playsound("voice_lay_do_3.mp3")
+        port.write(str.encode('5'))
+        time.sleep(time_Open)
+        port.write(str.encode('4'))
     if(SoTu == 4):
         playsound.playsound("voice_lay_do_4.mp3")
+        port.write(str.encode('7'))
+        time.sleep(time_Open)
+        port.write(str.encode('6'))
 def speed_to_Text():
     r = sr.Recognizer()
     with sr.Microphone() as source:
@@ -296,13 +323,6 @@ class MainWindow(QMainWindow):
         self.delete_Table()
         self.thread = {}
 ########################################################
-    def btn_Event(self):
-        self.uic.btn_Tu_1.clicked.connect(self.btn_Tu_1)
-        self.uic.btn_Tu_2.clicked.connect(self.btn_Tu_2)
-        self.uic.btn_Tu_3.clicked.connect(self.btn_Tu_3)
-        self.uic.btn_Tu_4.clicked.connect(self.btn_Tu_4)
-        self.uic.btn_view_Img.clicked.connect(self.btn_delete_Row)
-        self.uic.btn_delete.clicked.connect(self.btn_delete_All_Table)
     
     def btn_delete_All_Table(self):
         path = "History"
@@ -319,15 +339,21 @@ class MainWindow(QMainWindow):
         imagePaths = [os.path.join(path,f) for f in os.listdir(path)]
         pathss, dirs, files = next(os.walk(path))
         file_count = len(files)
+        if(row == 0):
+            os.remove(imagePaths[0])
+            self.show_Table()
+            return
         if(file_count != 0 & row != -1 & row < file_count):
             os.remove(imagePaths[row])
             self.show_Table()
             return
         
 
-
     def btn_Tu_1(self):
         self.uic.label_Tu_1.setText("Trống")
+        port.write(str.encode('1'))
+        time.sleep(time_Open)
+        port.write(str.encode('0'))
         path = "dataFace"
         pathss, dirs, files = next(os.walk("dataFace"))
         file_count = len(files)
@@ -340,6 +366,9 @@ class MainWindow(QMainWindow):
                     train_Data()
     def btn_Tu_2(self):
         self.uic.label_Tu_2.setText("Trống")
+        port.write(str.encode('3'))
+        time.sleep(time_Open)
+        port.write(str.encode('2'))
         path = "dataFace"
         pathss, dirs, files = next(os.walk("dataFace"))
         file_count = len(files)
@@ -352,6 +381,9 @@ class MainWindow(QMainWindow):
                     train_Data()    
     def btn_Tu_3(self):
         self.uic.label_Tu_3.setText("Trống")
+        port.write(str.encode('5'))
+        time.sleep(time_Open)
+        port.write(str.encode('4'))
         path = "dataFace"
         pathss, dirs, files = next(os.walk("dataFace"))
         file_count = len(files)
@@ -364,6 +396,9 @@ class MainWindow(QMainWindow):
                     train_Data()    
     def btn_Tu_4(self):
         self.uic.label_Tu_4.setText("Trống")
+        port.write(str.encode('7'))
+        time.sleep(time_Open)
+        port.write(str.encode('6'))
         path = "dataFace"
         pathss, dirs, files = next(os.walk("dataFace"))
         file_count = len(files)
@@ -445,6 +480,8 @@ class MainWindow(QMainWindow):
         for imagePath in imagePaths:
             if(1 == int(imagePath.split("\\")[1].split(".")[1])):
                 pixmap_1 = QPixmap(imagePath)
+                pixmap_1.scaled(self.uic.label_Tu_1.size(),QtCore.Qt.KeepAspectRatio)
+                self.uic.label_Tu_1.setScaledContents(True)
                 self.uic.label_Tu_1.setPixmap(pixmap_1)
                 return
             else:
@@ -459,6 +496,8 @@ class MainWindow(QMainWindow):
         for imagePath in imagePaths:
             if(2 == int(imagePath.split("\\")[1].split(".")[1])):
                 pixmap_2 = QPixmap(imagePath)
+                pixmap_2.scaled(self.uic.label_Tu_1.size(),QtCore.Qt.KeepAspectRatio)
+                self.uic.label_Tu_2.setScaledContents(True)
                 self.uic.label_Tu_2.setPixmap(pixmap_2)
                 return
             else:
@@ -473,6 +512,8 @@ class MainWindow(QMainWindow):
         for imagePath in imagePaths:
             if(3 == int(imagePath.split("\\")[1].split(".")[1])):
                 pixmap_1 = QPixmap(imagePath)
+                pixmap_1.scaled(self.uic.label_Tu_1.size(),QtCore.Qt.KeepAspectRatio)
+                self.uic.label_Tu_3.setScaledContents(True)
                 self.uic.label_Tu_3.setPixmap(pixmap_1)
                 return
             else:
@@ -487,6 +528,8 @@ class MainWindow(QMainWindow):
         for imagePath in imagePaths:
             if(4 == int(imagePath.split("\\")[1].split(".")[1])):
                 pixmap_1 = QPixmap(imagePath)
+                pixmap_1.scaled(self.uic.label_Tu_1.size(),QtCore.Qt.KeepAspectRatio)
+                self.uic.label_Tu_4.setScaledContents(True)
                 self.uic.label_Tu_4.setPixmap(pixmap_1)
                 return
             else:
@@ -512,6 +555,12 @@ if __name__ == "__main__":
     main_win = MainWindow()
     main_win.show()
     main_win.show_Console
+    main_win.uic.btn_Tu_1.clicked.connect(main_win.btn_Tu_1)
+    main_win.uic.btn_Tu_2.clicked.connect(main_win.btn_Tu_2)
+    main_win.uic.btn_Tu_3.clicked.connect(main_win.btn_Tu_3)
+    main_win.uic.btn_Tu_4.clicked.connect(main_win.btn_Tu_4)
+    main_win.uic.btn_delete_One.clicked.connect(main_win.btn_delete_Row)
+    main_win.uic.btn_delete_All.clicked.connect(main_win.btn_delete_All_Table)
     main_win.run_Task()
     #main_win.runLongTask()
     sys.exit(app.exec())
