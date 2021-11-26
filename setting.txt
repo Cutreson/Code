@@ -1,0 +1,15 @@
+pip install SpeechRecognition
+pip install wheel
+pip install pipwin
+pip install pyaudio
+pip install pyttsx3
+pip install serial
+pip install pyserial
+pip install opencv-python
+pip install opencv-contrib-python
+pip install opencv-contrib-python --upgrade
+pip install PyQt5
+pip install playsound
+pip install gTTs
+python3 -m pip install --upgrade pip
+python3 -m pip install --upgrade Pillow
