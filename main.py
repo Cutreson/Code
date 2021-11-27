@@ -48,7 +48,7 @@ def check_port():
                 sys.exit() # Terminates Script.
             int1 = int1 + 1
     return str1
-#port = serial.Serial(check_port(),9600)
+port = serial.Serial(check_port(),9600)
 ##############################################
 def voice_gui_do(SoTu):
     if(SoTu == 1):
